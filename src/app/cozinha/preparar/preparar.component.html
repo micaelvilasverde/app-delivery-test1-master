@@ -1,0 +1,20 @@
+<div class="container_preparar">
+  <div class="header">
+    <img src="images/seta-voltar.png" alt="seta voltar" (click)="voltarPaginaAnterior()">
+    <img src="images/casa-menu.png" alt="casinha menu" (click)="voltarParaMenu()">
+  </div>
+
+  <div class="status_preparar">A PREPARAR</div>
+
+  <!-- Lista de pedidos a preparar -->
+  <div *ngFor="let pedido of pedidos" class="order">
+    <div class="order-header">Pedido ID: {{ pedido.id }}</div>
+    <ul class="order-items">
+        <li *ngFor="let item of pedido.itens">
+            {{ item.quantidade }}x {{ item.nome }}
+        </li>
+    </ul>
+    <button (click)="preparando(pedido.id ?? 0)" class="button">Preparar</button>
+
+</div>
+
